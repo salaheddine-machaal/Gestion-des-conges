@@ -4,6 +4,9 @@ import com.app.dao.AppRoleRepository;
 import com.app.dao.AppUserRepository;
 import com.app.entity.AppRole;
 import com.app.entity.AppUser;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -42,5 +45,9 @@ public class AppUserService implements IAppUserService  {
 	@Override
 	public AppUser findUserByUsername(String username) {
 		return userRepository.findByUsername(username);
+	}
+	
+	public List<AppUser> getSubordinatesByManagerId(Long id){
+		return userRepository.findByManagerId(id);
 	}
 }

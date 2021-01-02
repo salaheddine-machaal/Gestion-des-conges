@@ -21,7 +21,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
 
 	@Autowired
 	public UserDetailsService userDetailService;
@@ -30,12 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public UserDetailsService createUserDetailsService() {
         return new UserDetailService();
     }
-	
-	@Bean
-	public BCryptPasswordEncoder getEncoder() {
-	    return new BCryptPasswordEncoder();
-	}
-
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
